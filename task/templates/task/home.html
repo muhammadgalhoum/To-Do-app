@@ -1,0 +1,92 @@
+{% extends 'task/base.html' %}
+{% block head %}
+    <meta http-equiv="refresh" content="30">
+{% endblock %}
+{% block content %}
+<div class="content">
+  <div class="container">
+    <div class="tasks">
+      <div class="task">
+        <h3>Urgent and important</h3>
+        <hr/>
+        {% for task in u_i_tasks %}
+          <div class="holder">
+            {% if task.complete == True %}
+              <a class="completed" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+            {% else %}
+              {% if task.check_deadline == "about" %}
+                <a class="about-to-ended" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% elif task.check_deadline == "ended" %}
+                <a class="ended" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% else %}
+                <a href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% endif %}
+            {% endif %}
+              <a href="{% url 'delete-task' task.id %}"><i class="fa-solid fa-xmark"></i></a>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="task">
+        <h3>Not urgent but important</h3>
+        <hr/>
+        {% for task in nu_i_tasks %}
+          <div class="holder">
+            {% if task.complete == True %}
+              <a class="completed" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+            {% else %}
+              {% if task.check_deadline == "about" %}
+                <a class="about-to-ended" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% elif task.check_deadline == "ended" %}
+                <a class="ended" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% else %}
+                <a href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% endif %}
+            {% endif %}
+              <a href="{% url 'delete-task' task.id %}"><i class="fa-solid fa-xmark"></i></a>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="task">
+        <h3>Urgent but not important</h3>
+        <hr/>
+        {% for task in u_ni_tasks %}
+          <div class="holder">
+            {% if task.complete == True %}
+              <a class="completed" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+            {% else %}
+              {% if task.check_deadline == "about" %}
+                <a class="about-to-ended" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% elif task.check_deadline == "ended" %}
+                <a class="ended" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% else %}
+                <a href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% endif %}
+            {% endif %}
+              <a href="{% url 'delete-task' task.id %}"><i class="fa-solid fa-xmark"></i></a>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="task">
+        <h3>Not urgent and not important</h3>
+        <hr/>
+        {% for task in nu_ni_tasks %}
+          <div class="holder">
+            {% if task.complete == True %}
+              <a class="completed" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+            {% else %}
+              {% if task.check_deadline == "about" %}
+                <a class="about-to-ended" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% elif task.check_deadline == "ended" %}
+                <a class="ended" href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% else %}
+                <a href="{% url 'task-detail' task.id %}">{{task.title|title}}</a>
+              {% endif %}
+            {% endif %}
+              <a href="{% url 'delete-task' task.id %}"><i class="fa-solid fa-xmark"></i></a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content%}

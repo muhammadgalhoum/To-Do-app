@@ -1,0 +1,305 @@
+/* Start Global Rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  -webkit-scroll-behavior: smooth;
+  -moz-scroll-behavior: smooth;
+  -ms-scroll-behavior: smooth;
+  -o-scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: cursive;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* End Global Rules */
+/* Start Navbar */
+nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  padding: 0 15px 0 5px;
+  background-color: #ec5252;
+}
+
+nav a {
+  color: white;
+}
+
+nav div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+nav div.menues a.logo img {
+  width: 40px;
+  max-width: 100%;
+}
+/* End Navbar */
+/* Start main content */
+.content {
+  padding: 30px 0;
+}
+
+.content .container div.success-msg {
+  padding: 15px;
+  margin: 0 auto 20px;
+  background-color: #28a745;
+}
+
+.content .container div.info-msg {
+  padding: 15px;
+  margin: 0 auto 20px;
+  background-color: #17a2b8;
+}
+
+.content .container p.error-msg {
+  padding: 15px;
+  margin: 20px auto;
+  background-color: #17a2b8;
+}
+
+.content .container div.tasks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .content .container div.tasks {
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  }
+}
+
+.content .container .tasks .task {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: calc(100vh / 2);
+  box-shadow: 1px 3px 5px 2px rgba(214, 214, 214, 1);
+}
+
+.content .container .tasks .task:first-of-type {
+  background-color: #53BBB4;
+}
+
+.content .container .tasks .task:nth-child(2) {
+  background-color: #5FCF80;
+}
+
+.content .container .tasks .task:nth-child(3) {
+  background-color: #838CC7;
+}
+
+.content .container .tasks .task:last-of-type {
+  background-color: #F9845B;
+}
+
+.content .container .tasks .task h3 {
+  text-align: center;
+}
+
+.content .container .tasks .task div.holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 15px 15px 35px;
+  border-radius: 6px;
+  background-color: azure;
+}
+
+.content .container .tasks .task div a {
+  color: black;
+}
+
+.content .container .tasks .task div a:first-of-type {
+  position: relative;
+}
+
+.content .container .tasks .task div a:first-of-type.completed {
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+.content .container .tasks .task div a:first-of-type::before {
+  position: absolute;
+  content: '';
+  left: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #9E9E9E;
+}
+
+.content .container .tasks .task div a.completed::before {
+  background-color: #4CAF50;
+}
+
+.content .container .tasks .task div a.about-to-ended::before {
+  background-color: yellow;
+}
+
+.content .container .tasks .task div a.ended::before {
+  background-color: red;
+}
+
+.content .container .delete-form {
+  color: red;
+  font-weight: bold;
+  padding: 15px;
+  box-shadow: 1px 3px 5px 2px rgba(214, 214, 214, 1);
+}
+
+.content .container .delete-form p {
+  margin: 0 0 15px;
+}
+
+.content .container .delete-form .btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.content .container .delete-form .btns input[type="submit"] {
+  border: none;
+  border-radius: 6px;
+  padding: 5px 15px;
+  font-weight: bold;
+  font-family: cursive;
+  cursor: pointer;
+}
+
+.content .container .delete-form .btns a {
+  color: black;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background-color: #f0f0f0;
+}
+
+.content .container .task-form {
+  padding: 15px;
+  box-shadow: 1px 3px 5px 2px rgba(214, 214, 214, 1);
+}
+
+.content .container .task-form div.form-group {
+  margin: 0 0 15px;
+}
+
+.content .container .task-form div.form-group input:not(input[type="file"]),
+.content .container .task-form div.form-group textarea {
+  padding: 5px 10px;
+  max-width: 100%;
+  font-family: cursive;
+}
+
+.content .container .task-form div.form-group input[type="text"],
+.content .container .task-form div.form-group textarea {
+  width: 100%;
+}
+
+.content .container .task-form div.form-group textarea {
+  resize: none;
+}
+
+.content .container .task-form select {
+  font-family: cursive;
+}
+
+.content .container .task-form input[type="submit"] {
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-radius: 6px;
+  font-family: cursive;
+}
+
+.content .container .task-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  box-shadow: 1px 3px 5px 2px rgba(214, 214, 214, 1);
+}
+
+.content .container .task-detail .info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.content .container .task-detail .control-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  align-self: end;
+}
+
+.content .container .task-detail .control-btns i.fa-pen-to-square {
+  color:#607D8B;
+}
+
+.content .container .task-detail .control-btns i.fa-trash {
+  color:#f00;
+}
+
+.content .container .task-detail .image {
+  text-align: center;
+}
+
+.content .container .task-detail .image img {
+  max-width: 100%;
+}
+/* End main content */

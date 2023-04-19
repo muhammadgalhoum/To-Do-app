@@ -1,0 +1,27 @@
+{% extends 'task/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="content">
+    <div class="container">
+      <div class="task-detail">
+        <h2>{{task.title}}</h2>
+        <div class="info">
+          <small><strong>Date: </strong>{{task.created_date}}</small>
+          <small><strong>Deadline: </strong>{{task.deadline}}</small>
+          <small><strong>Completed: </strong>{{task.complete}}</small>
+        </div>
+        <p>{{task.description}}</p>
+        <div class="control-btns">
+          <a href="{% url 'update-task' task.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+          <a href="{% url 'delete-task' task.id %}"><i class="fa-solid fa-trash"></i></a>
+        </div>
+        {% if task.task_image %}
+        <hr/>
+        <div class="image">
+          <img src="{{task.task_image}}" alt="{{task.title}} image">
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}
